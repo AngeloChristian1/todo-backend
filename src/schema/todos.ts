@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const TodoSchema = new mongoose.Schema({
     title: {type: String, required:true},
     content: {type: String, required:true},
-    isDone: {type: String, required:true},
+    isDone: {type: Boolean, required:true},
     date:{type: String},
 })
 

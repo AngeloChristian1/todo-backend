@@ -38,7 +38,7 @@ export const updateUser = async (req:express.Request, res:express.Response)=>{
 
         user.name = name;
         await user.save();
-        return res.sendStatus(200).json(user).end();
+        return res.sendStatus(200);
     }catch(error){
         console.log(error)
         return res.sendStatus(400);

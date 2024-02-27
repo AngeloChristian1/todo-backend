@@ -5,7 +5,7 @@ export const addTodo = async (req: express.Request, res: express.Response) =>{
     try{
         const {title, content, isDone, date} = req.body;
 
-        if(!title || !content || !isDone){
+        if(!title || !content || isDone== null){
             return res.sendStatus(400);
         }
 
@@ -64,7 +64,8 @@ export const updateTodo = async (req:express.Request, res:express.Response)=>{
         todo.title = title;
         todo.content = content;
         await todo.save();
-        return res.sendStatus(200).json(todo).end();
+        // return res.sendStatus(200).json(todo).end();
+        return res.sendStatus(200);
     }catch(error){
         console.log(error)
         return res.sendStatus(400); 

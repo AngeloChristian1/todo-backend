@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 
 const MONGO_URL = 'mongodb+srv://AngeloChristian:ySGl4d7ZvTE3BRhK@cluster0.8xeh2j6.mongodb.net/?retryWrites=true&w=majority'
+// const MONGO_URL = 'mongodb+srv://AngeloChristian:ySGl4d7ZvTE3BRhK@cluster0.8xeh2j6.mongodb.net/my-blog?retryWrites=true&w=majority'
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL)
@@ -38,6 +39,10 @@ mongoose.connection.on("error", (error: Error)=> console.log("Error", error))
 //       });
 //   };
 
+
+app.get('/welcome', (req:any, res:any)=>{
+  res.status(200).send({message:"Welcome to my API"})
+})
   server.listen(8080, ()=>{
     console.log('listening on port https://localhost:8080')
     // connectMongo();
